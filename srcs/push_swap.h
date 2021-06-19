@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:29:54 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 08:03:25 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ t_node		*new_node(int val);
 */
 void		error_exit(void);
 int			get_int(const char *str);
-void		test(t_stack *st);
+void		test(t_ps *ps);
 
 /*
 **	operations
 */
-void		px(t_stack *x);
+void		pa(t_ps *ps);
+void		pb(t_ps *ps);
 void		sx(t_stack *x);
 void		ss(t_ps *ps);
 void		rx(t_stack *x);
