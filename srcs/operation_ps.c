@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:10 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:22:09 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 07:38:19 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	ss(t_ps *ps)
 		free(pop_b1);
 		free(pop_b2);
 	}
-	ft_putstr_fd("ss\n", 1);
+	if (ps->a->size >= 2 || ps->b->size >= 2)
+		ft_printf("ss\n");
 }
