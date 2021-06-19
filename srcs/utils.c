@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/19 21:12:43 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 04:18:44 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,18 @@ int		get_int(const char *str)
 		|| (int64_t)INT_MAX < (int64_t)(ans * sign))
 		error_exit();
 	return (ans * sign);
+}
+
+void	test(t_stack *st)
+{
+	t_node *nd;
+	int		i;
+
+	nd = st->head;
+	i = st->size;
+	while (i--)
+	{
+		printf("node val: %d\n", nd->val);
+		nd = nd->next;
+	}
 }

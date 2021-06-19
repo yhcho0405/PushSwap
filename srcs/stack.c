@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/19 20:32:15 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 05:12:29 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_node	*new_node(int val)
 {
 	t_node *new;
 
-	new = (t_node *)malloc(sizeof(t_node));
+	new = (t_node *)malloc(sizeof(t_node)); // Prevent stack overflow
 	if (!new)
 		error_exit();
 	new->val = val;
