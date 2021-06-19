@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 05:25:05 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 07:29:54 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include "../printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
 
@@ -34,14 +35,25 @@ typedef struct s_stack
 {
 	t_node	*head;
 	size_t	size;
+	char	name;
 }	t_stack;
+
+typedef struct s_ps
+{
+	t_stack	*a;
+	t_stack	*b;
+}	t_ps;
+
+/*
+**	push_swap.c
+*/
 
 /*
 **	stack.c
 */
-void		push(t_stack *stack, t_node *node);
+void		push(t_stack *stack, int val);
 t_node		*pop(t_stack *stack);
-void		append(t_stack *stack, t_node *node);
+void		append(t_stack *stack, int val);
 t_node		*new_node(int val);
 
 /*
@@ -50,5 +62,16 @@ t_node		*new_node(int val);
 void		error_exit(void);
 int			get_int(const char *str);
 void		test(t_stack *st);
+
+/*
+**	operations
+*/
+void		px(t_stack *x);
+void		sx(t_stack *x);
+void		ss(t_ps *ps);
+void		rx(t_stack *x);
+void		rr(t_ps *ps);
+void		rrx(t_stack *x);
+void		rrr(t_ps *ps);
 
 #endif
