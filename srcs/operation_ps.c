@@ -6,22 +6,34 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:10 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:38:19 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 08:07:04 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	px(t_stack *x)
+void	pa(t_ps *ps)
 {
-	t_node *pop_x;
+	t_node *pop_b;
 
-	if (x->size < 1)
+	if (ps->b->size < 1)
 		return ;
-	pop_x = pop(x);
-	push(x, pop_x->val);
-	free(pop_x);
-	ft_printf("p%c\n", x->name);
+	pop_b = pop(ps->b);
+	push(ps->a, pop_b->val);
+	free(pop_b);
+	ft_printf("pa\n");
+}
+
+void	pb(t_ps *ps)
+{
+	t_node *pop_a;
+
+	if (ps->a->size < 1)
+		return ;
+	pop_a = pop(ps->a);
+	push(ps->b, pop_a->val);
+	free(pop_a);
+	ft_printf("pb\n");
 }
 
 void	sx(t_stack *x)

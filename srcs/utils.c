@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 04:18:44 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 08:04:37 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,36 @@ int		get_int(const char *str)
 	return (ans * sign);
 }
 
-void	test(t_stack *st)
+void	test(t_ps *ps)
 {
-	t_node *nd;
-	int		i;
+	t_node *na;
+	t_node *nb;
+	int		ia;
+	int		ib;
 
-	nd = st->head;
-	i = st->size;
-	while (i--)
+	na = ps->a->head;
+	nb = ps->b->head;
+	ia = ps->a->size;
+	ib = ps->b->size;
+	ft_printf("┌─────a─────┬─────b─────┐\n");
+	while (ia > 0 || ib > 0)
 	{
-		printf("node val: %d\n", nd->val);
-		nd = nd->next;
+		if (ia > 0)
+		{
+			ft_printf("|%11d|", na->val);
+			na = na->next;
+		}
+		else
+			ft_printf("│           │");
+		if (ib > 0)
+		{
+			ft_printf("%11d|\n", nb->val);
+			nb = nb->next;
+		}
+		else
+			ft_printf("           |\n");
+		ia--;
+		ib--;
 	}
+	ft_printf("└───────────┴───────────┘\n");
 }

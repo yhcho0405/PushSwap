@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:31:35 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 08:13:08 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	check_dup(t_stack *st)
 void	push_swap(t_ps *ps)
 {
 	//Todo: Impl swap algorithms
+
 }
 
 int		main(int argc, char **argv)
@@ -98,6 +99,18 @@ int		main(int argc, char **argv)
 	check_dup(a);
 	ps.a = a;
 	ps.b = b;
+	/*test(ps);
+	pb(ps);pb(ps);pb(ps);test(ps);
+	pa(ps);test(ps);
+	sx(ps->a);test(ps);
+	sx(ps->b);test(ps);
+	ss(ps);test(ps);
+	rx(ps->a);rx(ps->a);test(ps);
+	rx(ps->b);test(ps);
+	rr(ps);test(ps);
+	rrx(ps->a);test(ps);
+	rrx(ps->b);test(ps);
+	rrr(ps);test(ps);*/
 	push_swap(&ps);
 	return (0);
 }
