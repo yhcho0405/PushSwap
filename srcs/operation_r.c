@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:11 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:27:51 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 07:37:35 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	rr(t_ps *ps)
 		ps->a->head = ps->a->head->next;
 	if (ps->b->size >= 2)
 		ps->b->head = ps->b->head->next;
-	ft_printf("rr\n");
+	if (ps->a->size >= 2 || ps->b->size >= 2)
+		ft_printf("rr\n");
 }
 
 void	rrx(t_stack *x)
@@ -43,5 +44,6 @@ void	rrr(t_ps *ps)
 		ps->a->head = ps->a->head->prev;
 	if (ps->b->size >= 2)
 		ps->b->head = ps->b->head->prev;
-	ft_printf("rrr\n");
+	if (ps->a->size >= 2 || ps->b->size >= 2)
+		ft_printf("rrr\n");
 }
