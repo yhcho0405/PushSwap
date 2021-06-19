@@ -6,14 +6,17 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 05:12:29 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 06:39:34 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack, t_node *node)
+void	push(t_stack *stack, int val)
 {
+	t_node *node;
+
+	node = new_node(val);
 	if (!stack || !node)
 		return ;
 	if (!stack->head)
@@ -33,9 +36,10 @@ void	push(t_stack *stack, t_node *node)
 	stack->size++;
 }
 
-t_node *pop(t_stack *stack)
+t_node	*pop(t_stack *stack)
 {
 	t_node *ret;
+
 	if (!stack || !stack->size)
 		return (NULL);
 	ret = stack->head;
@@ -53,9 +57,12 @@ t_node *pop(t_stack *stack)
 	return (ret);
 }
 
-void	append(t_stack *stack, t_node *node)
+void	append(t_stack *stack, int val)
 {
-	if (!stack || !node)
+	t_node *node;
+
+	node = new_node(val);
+	if (!stack)
 		return ;
 	if (!stack->head)
 	{
