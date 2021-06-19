@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/18 14:04:02 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/19 08:59:55 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,13 @@ void	append(t_stack *stack, t_node *node)
 
 t_node	*new_node(int val)
 {
-	t_node new;
-	new.val = val;
-	new.prev = NULL;
-	new.next = NULL;
+	t_node *new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		error_exit();
+	new->val = val;
+	new->prev = NULL;
+	new->next = NULL;
 	return (&new);
 }
