@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/19 09:32:01 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/19 21:12:43 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,23 @@ void	error_exit()
 	exit(1);
 }
 
-t_bool	check_int(const char *str)
+int		get_int(const char *str)
 {
+	int			sign;
+	uint64_t	ans;
 
+	ans = 0;
+	sign = 1;
+	while ((9 <= *str && *str <= 13) || *str == ' ')
+		str++;
+	if ((*str == '-' || *str == '+') && *(str++) == '-')
+		sign *= -1;
+	if (ft_strlen(str) > 10)
+		error_exit();
+	while ('0' <= *str && *str <= '9')
+		ans = ans * 10 + *(str++) - '0';
+	if (*str || (int64_t)(ans * sign) < (int64_t)INT_MIN
+		|| (int64_t)INT_MAX < (int64_t)(ans * sign))
+		error_exit();
+	return (ans * sign);
 }

@@ -2,6 +2,7 @@
 
 SRCS =	srcs/push_swap.c \
 		srcs/stack.c \
+		srcs/utils.c \
 
 NAME = push_swap
 GCC_FLAG = #-Wall -Werror -Wextra #-g -fsanitize=address

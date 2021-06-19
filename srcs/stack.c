@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/19 08:59:55 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/19 20:32:15 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_node *pop(t_stack *stack)
 	if (!stack || !stack->size)
 		return (NULL);
 	ret = stack->head;
-	if (!stack->size == 1)
+	if (stack->size == 1)
 		stack->head = NULL;
 	else
 	{
@@ -83,5 +83,5 @@ t_node	*new_node(int val)
 	new->val = val;
 	new->prev = NULL;
 	new->next = NULL;
-	return (&new);
+	return (new);
 }

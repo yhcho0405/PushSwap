@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/19 09:18:54 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/19 21:12:48 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	parse_arg(t_stack *a, char *str)
 	i = -1;
 	while (args[++i])
 	{
-
+		printf("%d\n", get_int(args[i]));
 	}
 }
 
