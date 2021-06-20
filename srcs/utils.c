@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 08:04:37 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 11:02:08 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,55 @@ int		get_int(const char *str)
 		|| (int64_t)INT_MAX < (int64_t)(ans * sign))
 		error_exit();
 	return (ans * sign);
+}
+
+t_bool	check_sorted(t_stack *st)
+{
+	t_node	*n;
+	int		tmp;
+
+	n = st->head;
+	if (!n)
+		return (true);
+	tmp = n->val;
+	n = n->next;
+	while (n != st->head)
+	{
+		if (tmp > n->val)
+			return (false);
+		tmp = n->val;
+		n = n->next;
+	}
+	return (true);
+}
+
+void	arr_qsort(int *arr, int l, int r)
+{
+	int i;
+	int j;
+	int pivot;
+	int tmp;
+
+	i = l;
+	j = r;
+	pivot = arr[(l + r) / 2];
+	while (i <= j)
+	{
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j)
+		{
+			tmp = arr[i];
+			arr[i++] = arr[j];
+			arr[j--] = tmp;
+		}
+	}
+	if (l < j)
+		arr_qsort(arr, l, j);
+	if (i < r)
+		arr_qsort(arr, i, r);
 }
 
 void	test(t_ps *ps)
@@ -72,3 +121,15 @@ void	test(t_ps *ps)
 	}
 	ft_printf("└───────────┴───────────┘\n");
 }
+	/*test(ps);
+	pb(ps);pb(ps);pb(ps);test(ps);
+	pa(ps);test(ps);
+	sx(ps->a);test(ps);
+	sx(ps->b);test(ps);
+	ss(ps);test(ps);
+	rx(ps->a);rx(ps->a);test(ps);
+	rx(ps->b);test(ps);
+	rr(ps);test(ps);
+	rrx(ps->a);test(ps);
+	rrx(ps->b);test(ps);
+	rrr(ps);test(ps);*/
