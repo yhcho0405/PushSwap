@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 11:02:08 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 12:31:53 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ void	arr_qsort(int *arr, int l, int r)
 {
 	int i;
 	int j;
-	int pivot;
+	int pvt;
 	int tmp;
 
 	i = l;
 	j = r;
-	pivot = arr[(l + r) / 2];
+	pvt = arr[(l + r) / 2];
 	while (i <= j)
 	{
-		while (arr[i] < pivot)
+		while (arr[i] < pvt)
 			i++;
-		while (arr[j] > pivot)
+		while (arr[j] > pvt)
 			j--;
 		if (i <= j)
 		{

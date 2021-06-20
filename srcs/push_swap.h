@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 11:07:40 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 12:20:31 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ void		rx(t_stack *x);
 void		rr(t_ps *ps);
 void		rrx(t_stack *x);
 void		rrr(t_ps *ps);
+
+/*
+**	solve.c
+*/
+void		solve(int *arr, t_ps *ps, int size);
 
 /*
 **	utils.c

@@ -2,9 +2,10 @@
 
 SRCS =	srcs/push_swap.c \
 		srcs/stack.c \
-		srcs/utils.c \
 		srcs/operation_ps.c \
 		srcs/operation_r.c \
+		srcs/solve.c \
+		srcs/utils.c \
 		printf/ft_printf.c \
 		printf/print_placeholder.c \
 		printf/parse_utils.c \
