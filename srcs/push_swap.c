@@ -6,13 +6,14 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 10:51:15 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/20 14:13:29 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Fixme: comment out -> makefile/WFLAG
+//	Fixme: comment out -> makefile/WFLAG
+//	python3 push_swap_visualizer/pyviz.py `ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`
 
 void	parse_arg(t_stack *a, char **arg, int ac)
 {
@@ -55,24 +56,24 @@ void	check_dup(t_stack *st)
 
 void	push_swap(t_ps *ps)
 {
-	//Todo: Impl swap algorithms
 	int		*arr;
 	int		i;
 	t_node	*n;
 
 	if (check_sorted(ps->a))
 		return ;
-	i = ps->a->size;
-	arr = (int *)malloc(sizeof(int) * i);
+	arr = (int *)malloc(sizeof(int) * ps->a->size);
 	if (!arr)
 		error_exit();
 	n = ps->a->head;
-	while (i--)
+	i = -1;
+	while (++i < ps->a->size)
 	{
-		arr[ps->a->size - i - 1] = n->val;
+		arr[i] = n->val;
 		n = n->next;
 	}
 	arr_qsort(arr, 0, ps->a->size - 1);
+	solve(arr, ps, ps->a->size);
 }
 
 int		main(int argc, char **argv)
