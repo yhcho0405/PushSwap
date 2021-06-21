@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 14:13:29 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/21 18:16:42 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,26 @@ void	check_dup(t_stack *st)
 
 void	push_swap(t_ps *ps)
 {
-	int		*arr;
 	int		i;
 	t_node	*n;
 
 	if (check_sorted(ps->a))
 		return ;
-	arr = (int *)malloc(sizeof(int) * ps->a->size);
-	if (!arr)
+	ps->arr = (int *)malloc(sizeof(int) * ps->a->size);
+	ps->tmp = (int *)malloc(sizeof(int) * ps->a->size);
+	if (!ps->arr || !ps->tmp)
 		error_exit();
 	n = ps->a->head;
 	i = -1;
 	while (++i < ps->a->size)
 	{
-		arr[i] = n->val;
+		ps->tmp[i] = n->val;
+		ps->arr[i] = n->val;
 		n = n->next;
 	}
-	arr_qsort(arr, 0, ps->a->size - 1);
-	solve(arr, ps, ps->a->size);
+	arr_qsort(ps->arr, 0, ps->a->size - 1);
+	solve(ps->arr, ps, ps->a->size);
+	//	TODO: deallocated
 }
 
 int		main(int argc, char **argv)
@@ -99,6 +101,7 @@ int		main(int argc, char **argv)
 	check_dup(a);
 	ps.a = a;
 	ps.b = b;
+	ps.size = a->size;
 	push_swap(&ps);
 	return (0);
 }

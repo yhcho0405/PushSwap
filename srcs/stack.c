@@ -6,17 +6,14 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 06:39:34 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/22 00:13:05 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack, int val)
+void	push(t_stack *stack, t_node *node)
 {
-	t_node *node;
-
-	node = new_node(val);
 	if (!stack || !node)
 		return ;
 	if (!stack->head)

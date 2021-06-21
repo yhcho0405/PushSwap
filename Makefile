@@ -26,9 +26,17 @@ $(%.o): $(%.c)
 
 $(NAME): $(OBJS)
 	$(CC) -o $@ $^ -Llibft -lft
+	mkdir -p objs/
+	mv srcs/*.o objs/
+	mv printf/*.o objs/
+
+MAX = 500
+
+test: all
+	python3 push_swap_visualizer/pyviz.py `ruby -e "puts (1..$(MAX)).to_a.shuffle.join(' ')"`
 
 clean:
-	rm -f $(OBJS)
+	rm -rf objs/
 	make -C libft/ clean
 
 fclean: clean

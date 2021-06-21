@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 12:31:53 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/21 11:16:25 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@ t_bool	check_sorted(t_stack *st)
 	}
 	return (true);
 }
+
+
+
+
+
+
+
 
 void	arr_qsort(int *arr, int l, int r)
 {
