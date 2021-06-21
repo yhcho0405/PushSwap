@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 12:20:31 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/22 00:13:46 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "../printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
+
+# define INDEX 0
+# define VALUE 1
 
 typedef enum e_bool
 {
@@ -40,6 +43,9 @@ typedef struct s_stack
 
 typedef struct s_ps
 {
+	int		*tmp;
+	int 	*arr;
+	int		size;
 	t_stack	*a;
 	t_stack	*b;
 }	t_ps;
@@ -51,7 +57,7 @@ typedef struct s_ps
 /*
 **	stack.c
 */
-void		push(t_stack *stack, int val);
+void		push(t_stack *stack, t_node *node);
 t_node		*pop(t_stack *stack);
 void		append(t_stack *stack, int val);
 t_node		*new_node(int val);
