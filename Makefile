@@ -33,6 +33,7 @@ $(NAME): $(OBJS)
 MAX = 500
 
 test: all
+	./test.sh 1 500 10
 	python3 push_swap_visualizer/pyviz.py `ruby -e "puts (1..$(MAX)).to_a.shuffle.join(' ')"`
 
 clean:

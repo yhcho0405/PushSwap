@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:19:42 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/22 03:21:31 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/22 08:59:49 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,37 +160,6 @@ void	solve(int *arr, t_ps *ps, int size)
 }
 */
 
-int get_start_val(t_ps *ps, int size)
-{
-	int		i;
-	int		max;
-	int		cnt;
-	t_node	*n, *nn;
-
-	i = -1;
-	max = 0;
-	nn = ps->a->head;
-	while (++i < size - 1)
-	{
-		cnt = 0;
-		n = nn->next;
-		ps->tmp[0] = n->prev->val;
-		ps->tmp[1] = n->prev->val;
-		while (n != ps->a->head)
-		{
-			if (ps->tmp[0] < n->val && ++cnt)
-				ps->tmp[0] = n->val;
-			n = n->next;
-		}
-		if (max < cnt)
-		{
-			max = cnt;
-			ps->tmp[2] = ps->tmp[1];
-		}
-		nn = nn->next;
-	}
-	return (ps->tmp[2]);
-}
 
 void	swap(int *a, int *b)
 {
@@ -212,6 +181,50 @@ t_bool	canpa(t_ps *ps, t_node *a, t_node *b)
 	return (false);
 }
 
+int get_idx(t_ps *ps, int val)
+{
+	int idx;
+
+	idx = -1;
+	while (ps->arr[idx] != val)
+		idx++;
+	return (idx);
+}
+
+int	calc_wgt(t_ps *ps, t_node *n, int ws)
+{
+	int i;
+	t_node *h;
+	int idx;
+	int ret;
+	int ti;
+	ret = 0;
+	i = -1;
+	h = n;
+	idx = get_idx(ps, n->val);
+	while (++i < ws)
+	{
+		n = n->next;
+		ti = get_idx(ps, n->val);
+		if (idx > ti)
+			ret += idx - ti;
+		else
+			ret += ti - idx;
+	}
+	n = h;
+	while (i--)
+	{
+		n = n->prev;
+		ti = get_idx(ps, n->val);
+		if (idx > ti)
+			ret += idx - ti;
+		else
+			ret += ti - idx;
+	}
+
+	return ((ret - (ws * 2) * (ps->size / 2)) / ((ws * 2) * (ps->size / 2) / 3));
+}
+
 int		max(int i, int j)
 {
 	if (i < j)
@@ -223,7 +236,6 @@ void	solve(int *arr, t_ps *ps, int size)
 {
 	t_stack *a = ps->a;
 	t_stack *b = ps->b;
-	int sv = get_start_val(ps, size);
 	int i = -1;
 	int j = 0;
 	int chk = 0;
@@ -232,20 +244,20 @@ void	solve(int *arr, t_ps *ps, int size)
 	t_node *nb;
 	int rna, rnb, as, bs, mina = 0, minb = 0, min, mina2 = 0, minb2 = 0;
 	i = -1;
-
+	ws = 10;
 	while (++i < size)
 	{
-		if (a->head->val < arr[ps->size / 3])
+		if (a->head->val < arr[ps->size / 2 - i / 2])
 		{
 			pb(ps);
 			rx(b);
 		}
-		else if (a->head->val > arr[ps->size / 3 * 2])
+		else if (a->head->val > arr[ps->size / 3 * 2 - i / 3])
 			pb(ps);
 		else
 			rx(a);
 	}
-	while (a->size > 0)
+	while (a->size > 2)
 		pb(ps);
 	while (b->size > 0)
 	{
@@ -295,16 +307,16 @@ void	solve(int *arr, t_ps *ps, int size)
 		na = a->head;
 		nb = b->head;
 		i = -1;
-		int min3 = max(as, bs);
+		int min3 = as + bs;
 		int mina3 = 0, minb3 = 0;
 		while (++i < as)
 		{
 			j = -1;
 			while (++j < bs)
 			{
-				if ( canpa(ps, na, nb) && min3 > max(i, j))
+				if ( canpa(ps, na, nb) && min3 > i + j)
 				{
-					min3 = max(i, j);
+					min3 = i + j;
 					mina3 = i;
 					minb3 = j;
 				}
@@ -316,16 +328,16 @@ void	solve(int *arr, t_ps *ps, int size)
 		na = a->head;
 		nb = b->head;
 		i = -1;
-		int min4 = max(as, bs);
+		int min4 = as +  bs;
 		int mina4 = 0, minb4 = 0;
 		while (++i < as)
 		{
 			j = -1;
 			while (++j < bs)
 			{
-				if ( canpa(ps, na, nb) && min4 > max(i, j))
+				if ( canpa(ps, na, nb) && min4 > i + j)
 				{
-					min4 = max(i, j);
+					min4 = i + j;
 					mina4 = i;
 					minb4 = j;
 				}
@@ -399,20 +411,19 @@ void	solve(int *arr, t_ps *ps, int size)
 
 	na = a->head;
 	nb = a->head;
-	int maxn = 0, maxp = 0;
+	int maxn = 0;
+	i = 0;
+	while (na->val != arr[0])
+	{
+		na = na->next;
+		i++;
+	}
 	while (a->head->val != arr[0])
 	{
-		i = -1;
-		if (na->val == arr[0])
-			while (++i < maxn)
-				rx(a);
-		else if (nb->val == arr[0])
-			while (++i < maxp)
-				rrx(a);
-		na = na->next;
-		maxn++;
-		nb = na->prev;
-		maxp++;
+		if (i > ps->size / 2)
+			rrx(a);
+		else
+			rx(a);
 	}
 
 }
