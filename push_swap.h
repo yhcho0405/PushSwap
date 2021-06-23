@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 12:35:14 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 13:03:22 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
+# include "gnl/get_next_line.h"
 # include <limits.h>
-# include <stdio.h>
 
 typedef enum e_bool
 {
