@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/21 18:16:42 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 10:45:14 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ void	push_swap(t_ps *ps)
 		n = n->next;
 	}
 	arr_qsort(ps->arr, 0, ps->a->size - 1);
-	solve(ps->arr, ps, ps->a->size);
+	if (ps->size == 2)
+		sx(ps->a);
+	else
+		solve(ps, ps->a, ps->b, ps->min);
 	//	TODO: deallocated
 }
 
