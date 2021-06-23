@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:19:42 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 10:58:34 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 11:19:24 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	align(t_ps *ps, t_node *n)
 	}
 	while (ps->a->head->val != ps->arr[0])
 	{
-		if (i < ps->size / 2)
+		if (i <= ps->size / 2)
 			rx(ps->a);
 		else
 			rrx(ps->a);
