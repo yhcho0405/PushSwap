@@ -6,11 +6,11 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:10 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/22 00:17:00 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 12:27:41 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pa(t_ps *ps)
 {

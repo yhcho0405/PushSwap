@@ -6,11 +6,11 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 10:22:41 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 12:25:42 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	error_exit()
 {
@@ -88,19 +88,6 @@ void	arr_qsort(int *arr, int l, int r)
 		arr_qsort(arr, i, r);
 }
 
-int		max(int a, int b)
-{
-	if (a < b)
-		return (b);
-	return (a);
-}
-
-int		min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
 
 void	test(t_ps *ps)
 {

@@ -6,20 +6,17 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 10:46:11 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 12:35:14 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
-
-# define INDEX 0
-# define VALUE 1
 
 typedef enum e_bool
 {
@@ -56,6 +53,9 @@ typedef struct s_ps
 /*
 **	push_swap.c
 */
+void		parse_arg(t_stack *a, char **arg, int ac);
+void		check_dup(t_stack *st);
+void		push_swap(t_ps *ps);
 
 /*
 **	stack.c
@@ -104,6 +104,10 @@ void		rrr(t_ps *ps);
 /*
 **	solve.c
 */
+t_bool		is_corr(t_ps *ps, t_node *a, t_node *b);
+int			calc_min(t_ps *ps, t_node *na, t_node *nb, int m);
+void		move(t_ps *ps, int dir, t_stack	*s, int m);
+void		align(t_ps *ps, t_node *n);
 void		solve(t_ps *ps, t_stack *a, t_stack *b, int *min);
 
 /*
@@ -113,8 +117,6 @@ void		error_exit(void);
 int			get_int(const char *str);
 t_bool		check_sorted(t_stack *st);
 void		arr_qsort(int *arr, int l, int r);
-int			min(int a, int b);
-int			max(int a, int b);
 void		test(t_ps *ps);
 
 #endif

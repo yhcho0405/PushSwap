@@ -12,6 +12,7 @@
 		"unordered_map": "c",
 		"utility": "c",
 		"vector": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"*.ds_store": "c"
 	}
 }
