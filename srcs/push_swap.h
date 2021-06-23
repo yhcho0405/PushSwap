@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/22 00:13:46 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 10:46:11 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_ps
 	int		*tmp;
 	int 	*arr;
 	int		size;
+	int		dir;
+	int		min[4];
+	int		move[8];
 	t_stack	*a;
 	t_stack	*b;
 }	t_ps;
@@ -101,7 +104,7 @@ void		rrr(t_ps *ps);
 /*
 **	solve.c
 */
-void		solve(int *arr, t_ps *ps, int size);
+void		solve(t_ps *ps, t_stack *a, t_stack *b, int *min);
 
 /*
 **	utils.c
@@ -110,6 +113,8 @@ void		error_exit(void);
 int			get_int(const char *str);
 t_bool		check_sorted(t_stack *st);
 void		arr_qsort(int *arr, int l, int r);
+int			min(int a, int b);
+int			max(int a, int b);
 void		test(t_ps *ps);
 
 #endif
