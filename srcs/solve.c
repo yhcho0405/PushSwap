@@ -6,11 +6,11 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:19:42 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 11:19:24 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 12:25:49 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_bool	is_corr(t_ps *ps, t_node *a, t_node *b)
 {
@@ -34,10 +34,10 @@ int		calc_min(t_ps *ps, t_node *na, t_node *nb, int m)
 		j = -1;
 		while (++j < ps->b->size)
 		{
-			if(m > max(i, j) + (min(i, j) * !!(ps->dir % 3))
+			if(m > ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3))
 				&& is_corr(ps, na, nb))
 			{
-				m = max(i, j) + (min(i, j) * !!(ps->dir % 3));
+				m = ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3));
 				ps->move[ps->dir * 2] = i;
 				ps->move[ps->dir  * 2 + 1] = j;
 			}
@@ -61,13 +61,13 @@ void	move(t_ps *ps, int dir, t_stack	*s, int m)
 	if (ps->move[dir * 2] < ps->move[dir * 2 + 1])
 		s = ps->b;
 	i = -1;
-	while (dir == 0 && ++i < min(ps->move[dir * 2], ps->move[dir * 2 + 1]))
+	while (dir == 0 && ++i < ft_min(ps->move[dir * 2], ps->move[dir * 2 + 1]))
 		rr(ps);
-	while (dir == 3 && ++i < min(ps->move[dir * 2], ps->move[dir * 2 + 1]))
+	while (dir == 3 && ++i < ft_min(ps->move[dir * 2], ps->move[dir * 2 + 1]))
 		rrr(ps);
-	while (dir == 0 && i++ < max(ps->move[dir * 2], ps->move[dir * 2 + 1]))
+	while (dir == 0 && i++ < ft_max(ps->move[dir * 2], ps->move[dir * 2 + 1]))
 		rx(s);
-	while (dir == 3 && i++ < max(ps->move[dir * 2], ps->move[dir * 2 + 1]))
+	while (dir == 3 && i++ < ft_max(ps->move[dir * 2], ps->move[dir * 2 + 1]))
 		rrx(s);
 	while (dir == 1 && ++i < ps->move[dir * 2])
 		rx(ps->a);
@@ -124,7 +124,7 @@ void	solve(t_ps *ps, t_stack *a, t_stack *b, int *m)
 		ps->dir = -1;
 		while (++ps->dir < 4)
 			m[ps->dir] = calc_min(ps, a->head, b->head, INT_MAX);
-		move(ps, 0, ps->a, min(m[0], min(m[1], min(m[2], m[3]))));
+		move(ps, 0, ps->a, ft_min(m[0], ft_min(m[1], ft_min(m[2], m[3]))));
 	}
 	align(ps, ps->a->head);
 }

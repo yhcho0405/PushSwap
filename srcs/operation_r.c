@@ -6,11 +6,11 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:11 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/20 07:37:35 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/23 12:25:55 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rx(t_stack *x)
 {

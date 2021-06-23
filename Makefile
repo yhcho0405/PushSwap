@@ -25,7 +25,7 @@ $(%.o): $(%.c)
 	$(CC) -o $@ -c $^
 
 $(NAME): $(OBJS)
-	$(CC) -o $@ $^ -Llibft -lft
+	$(CC) -o $@ $^ -Llibft -lft -I./
 	mkdir -p objs/
 	mv srcs/*.o objs/
 	mv printf/*.o objs/

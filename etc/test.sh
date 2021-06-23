@@ -195,23 +195,23 @@ echo "Identity test:"
 printf "test 1: "
 if [ "$(./push_swap 42 | wc -l)" -eq 0 ]
 then
-echo "✅  - ./push_swap 42 (should display nothing)"
+echo "✅  - ../push_swap 42 (should display nothing)"
 else
-echo "❌  - ./push_swap 42 (should display nothing)"
+echo "❌  - ../push_swap 42 (should display nothing)"
 fi
 printf "test 2: "
 if [ "$(./push_swap 0 1 2 3 | wc -l)" -eq 0 ]
 then
-echo "✅  - ./push_swap 0 1 2 3 (should display nothing)"
+echo "✅  - ../push_swap 0 1 2 3 (should display nothing)"
 else
-echo "❌  - ./push_swap 0 1 2 3 (should display nothing)"
+echo "❌  - ../push_swap 0 1 2 3 (should display nothing)"
 fi
 printf "test 3: "
 if [ "$(./push_swap 0 1 2 3 4 5 6 7 8 9 | wc -l)" -eq 0 ]
 then
-echo "✅  - ./push_swap 0 1 2 3 4 5 6 7 8 9 (should display nothing)"
+echo "✅  - ../push_swap 0 1 2 3 4 5 6 7 8 9 (should display nothing)"
 else
-echo "❌  - ./push_swap 0 1 2 3 4 5 6 7 8 9 (should display nothing)"
+echo "❌  - ../push_swap 0 1 2 3 4 5 6 7 8 9 (should display nothing)"
 fi
 fi
 
@@ -220,15 +220,15 @@ then
 	echo "\n\t\t       🤹🏻‍♀️  PUSH_SWAP LEAK TEST 🤹🏻‍♀️"
     echo "\t\t       -------------------------"
 	ARG=`ruby -e "puts ($from..$to).to_a.shuffle.join(' ')"`
-	leak=$(valgrind ./push_swap $ARG 2>&1 | grep "definitely lost" | cut -d ':' -f2 | cut -d ' ' -f2 | sed 's/,//')
-    heap=$(valgrind ./push_swap $ARG 2>&1 | grep "heap usage" | cut -d ':' -f2 | cut -d ' ' -f2 | sed 's/,//')
+	leak=$(valgrind ../push_swap $ARG 2>&1 | grep "definitely lost" | cut -d ':' -f2 | cut -d ' ' -f2 | sed 's/,//')
+    heap=$(valgrind ../push_swap $ARG 2>&1 | grep "heap usage" | cut -d ':' -f2 | cut -d ' ' -f2 | sed 's/,//')
 
 
 	if [ $heap -gt 0 ]
 	then
 	if [ $leak -gt 0 ]
 	then
-echo "Leaks: \033[31m$leak\033[m byte(s)   ❌   \033[33mUse: valgrind --leak-check=full ./push_swap <VALUES> to find all!\033[m"
+echo "Leaks: \033[31m$leak\033[m byte(s)   ❌   \033[33mUse: valgrind --leak-check=full ../push_swap <VALUES> to find all!\033[m"
 	else
 	echo "Leaks: \033[32m0\033[m bytes   ✅"
 	fi
