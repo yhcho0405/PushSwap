@@ -7,6 +7,7 @@ SRCS =	srcs/stack.c \
 		srcs/operation_ps.c \
 		srcs/operation_r.c \
 		srcs/utils.c \
+		srcs/utils2.c \
 		printf/ft_printf.c \
 		printf/print_placeholder.c \
 		printf/parse_utils.c
@@ -18,7 +19,7 @@ SRCS_CK =	srcs/checker.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
-GCC_FLAG = #-Wall -Werror -Wextra #-g -fsanitize=address
+GCC_FLAG = -Wall -Werror -Wextra #-g -fsanitize=address
 CC = gcc $(GCC_FLAG)
 
 OBJS = $(SRCS:.c=.o)

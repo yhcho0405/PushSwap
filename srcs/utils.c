@@ -6,37 +6,66 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 12:08:58 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 17:05:08 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	error_exit()
+void	parse_arg(t_ps *ps, char **arg, int ac)
 {
-	ft_putstr_fd("Error\n", 1);
-	exit(1);
+	int i;
+
+	i = 1;
+	if (ac == 2)
+		i = 0;
+	while (arg[i])
+	{
+		append(ps, ps->a, get_int(ps, arg[i]));
+		if (ac == 2)
+			free(arg[i]);
+		i++;
+	}
+	if (ac == 2)
+		free(arg);
 }
 
-int		get_int(const char *str)
+void	check_dup(t_ps *ps)
 {
-	int			sign;
-	uint64_t	ans;
+	int		i;
+	t_node *j;
+	t_node *k;
 
-	ans = 0;
-	sign = 1;
-	while ((9 <= *str && *str <= 13) || *str == ' ')
-		str++;
-	if ((*str == '-' || *str == '+') && *(str++) == '-')
-		sign *= -1;
-	if (ft_strlen(str) > 10 || ft_strlen(str) == 0)
-		error_exit();
-	while ('0' <= *str && *str <= '9')
-		ans = ans * 10 + *(str++) - '0';
-	if (*str || (int64_t)(ans * sign) < (int64_t)INT_MIN
-		|| (int64_t)INT_MAX < (int64_t)(ans * sign))
-		error_exit();
-	return (ans * sign);
+	i = -1;
+	j = ps->a->head;
+	while (++i < (int)ps->a->size)
+	{
+		k = j->next;
+		while (j != k)
+		{
+			if (j->val == k->val)
+				error_exit(ps);
+			k = k->next;
+		}
+		j = j->next;
+	}
+}
+
+void	least_case_sort(t_ps *ps)
+{
+	if (ps->a->size == 2
+	|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
+	|| ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0]))))
+		sx(ps->a);
+	ps->tmp[0] = ps->a->head->val;
+	ps->tmp[1] = ps->a->head->next->val;
+	ps->tmp[2] = ps->a->head->next->next->val;
+	if (ps->a->size != 2
+	&& ((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0])))
+		rx(ps->a);
+	else if (ps->a->size != 2
+	&& ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0])))
+		rrx(ps->a);
 }
 
 t_bool	check_sorted(t_stack *st)
@@ -87,50 +116,3 @@ void	arr_qsort(int *arr, int l, int r)
 	if (i < r)
 		arr_qsort(arr, i, r);
 }
-
-void	test(t_ps *ps)
-{
-	t_node *na;
-	t_node *nb;
-	int		ia;
-	int		ib;
-
-	system("clear");
-	na = ps->a->head;
-	nb = ps->b->head;
-	ia = ps->a->size;
-	ib = ps->b->size;
-	ft_printf("┌─────a─────┬─────b─────┐\n");
-	while (ia > 0 || ib > 0)
-	{
-		if (ia > 0)
-		{
-			ft_printf("|%11d|", na->val);
-			na = na->next;
-		}
-		else
-			ft_printf("│           │");
-		if (ib > 0)
-		{
-			ft_printf("%11d|\n", nb->val);
-			nb = nb->next;
-		}
-		else
-			ft_printf("           |\n");
-		ia--;
-		ib--;
-	}
-	ft_printf("└───────────┴───────────┘\n");
-}
-	/*test(ps);
-	pb(ps);pb(ps);pb(ps);test(ps);
-	pa(ps);test(ps);
-	sx(ps->a);test(ps);
-	sx(ps->b);test(ps);
-	ss(ps);test(ps);
-	rx(ps->a);rx(ps->a);test(ps);
-	rx(ps->b);test(ps);
-	rr(ps);test(ps);
-	rrx(ps->a);test(ps);
-	rrx(ps->b);test(ps);
-	rrr(ps);test(ps);*/
