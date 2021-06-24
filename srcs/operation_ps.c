@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:10 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 12:27:41 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 07:46:27 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	pa(t_ps *ps)
 	if (ps->b->size < 1)
 		return ;
 	push(ps->a, pop(ps->b));
-	ft_printf("pa\n");
+	if (!ps->is_chk)
+		ft_printf("pa\n");
 }
 
 void	pb(t_ps *ps)
@@ -25,7 +26,8 @@ void	pb(t_ps *ps)
 	if (ps->a->size < 1)
 		return ;
 	push(ps->b, pop(ps->a));
-	ft_printf("pb\n");
+	if (!ps->is_chk)
+		ft_printf("pb\n");
 }
 
 void	sx(t_stack *x)
@@ -37,7 +39,8 @@ void	sx(t_stack *x)
 	pop_x = pop(x);
 	push(x, pop_x);
 	push(x, pop_x);
-	ft_printf("s%c\n", x->name);
+	if (x->name)
+		ft_printf("s%c\n", x->name);
 }
 
 void	ss(t_ps *ps)
@@ -57,6 +60,6 @@ void	ss(t_ps *ps)
 		push(ps->b, pop_b);
 		push(ps->b, pop_b);
 	}
-	if (ps->a->size >= 2 || ps->b->size >= 2)
+	if (!ps->is_chk && ps->a->size >= 2 || ps->b->size >= 2)
 		ft_printf("ss\n");
 }

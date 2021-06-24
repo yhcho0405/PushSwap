@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/23 13:04:49 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 08:46:41 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 # include "printf/ft_printf.h"
 # include "gnl/get_next_line.h"
 # include <limits.h>
+
+# define O_SA 0
+# define O_SB 1
+# define O_SS 2
+# define O_PA 3
+# define O_PB 4
+# define O_RA 5
+# define O_RB 6
+# define O_RR 7
+# define O_RRA 8
+# define O_RRB 9
+# define O_RRR 10
 
 typedef enum e_bool
 {
@@ -44,6 +56,7 @@ typedef struct s_ps
 	int 	*arr;
 	int		size;
 	int		dir;
+	int		is_chk;
 	int		min[4];
 	int		move[8];
 	t_stack	*a;
@@ -53,9 +66,13 @@ typedef struct s_ps
 /*
 **	push_swap.c
 */
-void		parse_arg(t_stack *a, char **arg, int ac);
-void		check_dup(t_stack *st);
 void		push_swap(t_ps *ps);
+
+/*
+**	checker.c
+*/
+void		move_checker(t_ps *ps, int op);
+void		checker(t_ps *ps);
 
 /*
 **	stack.c
@@ -96,6 +113,7 @@ void		pa(t_ps *ps);
 void		pb(t_ps *ps);
 void		sx(t_stack *x);
 void		ss(t_ps *ps);
+
 void		rx(t_stack *x);
 void		rr(t_ps *ps);
 void		rrx(t_stack *x);
@@ -117,6 +135,8 @@ void		error_exit(void);
 int			get_int(const char *str);
 t_bool		check_sorted(t_stack *st);
 void		arr_qsort(int *arr, int l, int r);
+void		parse_arg(t_stack *a, char **arg, int ac);
+void		check_dup(t_stack *st);
 void		test(t_ps *ps);
 
 #endif
