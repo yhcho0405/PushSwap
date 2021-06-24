@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:19:42 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 13:15:05 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 18:12:27 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int		calc_min(t_ps *ps, t_node *na, t_node *nb, int m)
 	int j;
 
 	i = -1;
-	while (++i < ps->a->size)
+	while (++i < (int)ps->a->size)
 	{
 		j = -1;
-		while (++j < ps->b->size)
+		while (++j < (int)ps->b->size)
 		{
 			if(m > ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3))
 				&& is_corr(ps, na, nb))
@@ -119,7 +119,6 @@ void	solve(t_ps *ps, t_stack *a, t_stack *b, int *m)
 	}
 	while (a->size > 2)
 		pb(ps);
-	sx(ps->a);
 	while (b->size > 0)
 	{
 		ps->dir = -1;
