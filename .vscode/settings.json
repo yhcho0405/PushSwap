@@ -13,6 +13,8 @@
 		"utility": "c",
 		"vector": "c",
 		"ft_printf.h": "c",
-		"*.ds_store": "c"
+		"*.ds_store": "c",
+		"libft.h": "c",
+		"get_next_line.h": "c"
 	}
 }
