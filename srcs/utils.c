@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 08:46:56 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 12:08:58 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		get_int(const char *str)
 		str++;
 	if ((*str == '-' || *str == '+') && *(str++) == '-')
 		sign *= -1;
-	if (ft_strlen(str) > 10)
+	if (ft_strlen(str) > 10 || ft_strlen(str) == 0)
 		error_exit();
 	while ('0' <= *str && *str <= '9')
 		ans = ans * 10 + *(str++) - '0';
@@ -86,45 +86,6 @@ void	arr_qsort(int *arr, int l, int r)
 		arr_qsort(arr, l, j);
 	if (i < r)
 		arr_qsort(arr, i, r);
-}
-
-void	parse_arg(t_stack *a, char **arg, int ac)
-{
-	int i;
-
-	i = 1;
-	if (ac == 2)
-		i = 0;
-	while (arg[i])
-	{
-		append(a, get_int(arg[i]));
-		if (ac == 2)
-			free(arg[i]);
-		i++;
-	}
-	if (ac == 2)
-		free(arg);
-}
-
-void	check_dup(t_stack *st)
-{
-	int		i;
-	t_node *j;
-	t_node *k;
-
-	i = -1;
-	j = st->head;
-	while (++i < st->size)
-	{
-		k = j->next;
-		while (j != k)
-		{
-			if (j->val == k->val)
-				error_exit();
-			k = k->next;
-		}
-		j = j->next;
-	}
 }
 
 void	test(t_ps *ps)

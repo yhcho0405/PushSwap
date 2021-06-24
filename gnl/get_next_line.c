@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 17:12:27 by youncho           #+#    #+#             */
-/*   Updated: 2020/12/31 08:39:01 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 11:20:51 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int		get_next_line(int fd, char **line)
 		return (R_ERR);
 	if ((ret = read_control(fd, line, curr->buff)))
 		return ((ret == R_ERR) ? deallocation(fd, &head, R_ERR) : R_NL);
-	return (deallocation(fd, &head, R_EOF));
+	if (ret < BUFFER_SIZE && !ft_strlen(*line))
+		return (deallocation(fd, &head, R_EOF));
+	return (R_NL);
 }

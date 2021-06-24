@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 08:46:41 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/24 10:43:21 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,8 @@ void		error_exit(void);
 int			get_int(const char *str);
 t_bool		check_sorted(t_stack *st);
 void		arr_qsort(int *arr, int l, int r);
-void		parse_arg(t_stack *a, char **arg, int ac);
-void		check_dup(t_stack *st);
+static void	parse_arg(t_stack *a, char **arg, int ac);
+static void	check_dup(t_stack *st);
 void		test(t_ps *ps);
 
 #endif
