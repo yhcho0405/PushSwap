@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 12:19:42 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 18:10:57 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:51:59 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ t_bool	is_corr(t_ps *ps, t_node *a, t_node *b)
 	return (false);
 }
 
-int		calc_min(t_ps *ps, t_node *na, t_node *nb, int m)
+int	calc_min(t_ps *ps, t_node *na, t_node *nb, int m)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < (int)ps->a->size)
@@ -34,12 +34,12 @@ int		calc_min(t_ps *ps, t_node *na, t_node *nb, int m)
 		j = -1;
 		while (++j < (int)ps->b->size)
 		{
-			if(m > ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3))
+			if (m > ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3))
 				&& is_corr(ps, na, nb))
 			{
 				m = ft_max(i, j) + (ft_min(i, j) * !!(ps->dir % 3));
 				ps->move[ps->dir * 2] = i;
-				ps->move[ps->dir  * 2 + 1] = j;
+				ps->move[ps->dir * 2 + 1] = j;
 			}
 			nb = nb->next;
 			if (ps->dir % 2)
@@ -83,7 +83,7 @@ void	move(t_ps *ps, int dir, t_stack	*s, int m)
 
 void	align(t_ps *ps, t_node *n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (n->val != ps->arr[0])
@@ -102,7 +102,7 @@ void	align(t_ps *ps, t_node *n)
 
 void	solve(t_ps *ps, t_stack *a, t_stack *b, int *m)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < ps->size && ps->size > 30)

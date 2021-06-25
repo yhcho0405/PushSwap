@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 05:58:10 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 12:21:10 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:46:21 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	pb(t_ps *ps)
 
 void	sx(t_stack *x)
 {
-	t_node *pop_x1;
-	t_node *pop_x2;
+	t_node	*pop_x1;
+	t_node	*pop_x2;
 
 	if (x->size < 2)
 		return ;
@@ -47,10 +47,10 @@ void	sx(t_stack *x)
 
 void	ss(t_ps *ps)
 {
-	t_node *pop_a1;
-	t_node *pop_a2;
-	t_node *pop_b1;
-	t_node *pop_b2;
+	t_node	*pop_a1;
+	t_node	*pop_a2;
+	t_node	*pop_b1;
+	t_node	*pop_b2;
 
 	if (ps->a->size >= 2)
 	{

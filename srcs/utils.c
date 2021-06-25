@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 18:18:27 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:48:33 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parse_arg(t_ps *ps, char **arg, int ac)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (ac == 2)
@@ -33,8 +33,8 @@ void	parse_arg(t_ps *ps, char **arg, int ac)
 void	check_dup(t_ps *ps)
 {
 	int		i;
-	t_node *j;
-	t_node *k;
+	t_node	*j;
+	t_node	*k;
 
 	i = -1;
 	j = ps->a->head;
@@ -54,17 +54,17 @@ void	check_dup(t_ps *ps)
 void	least_case_sort(t_ps *ps)
 {
 	if (ps->a->size == 2
-	|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
-	|| ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0]))))
+		|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
+			|| ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0]))))
 		sx(ps->a);
 	ps->tmp[0] = ps->a->head->val;
 	ps->tmp[1] = ps->a->head->next->val;
 	ps->tmp[2] = ps->a->head->next->next->val;
 	if (ps->a->size != 2
-	&& ((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0])))
+		&& ((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0])))
 		rx(ps->a);
 	else if (ps->a->size != 2
-	&& ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0])))
+		&& ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0])))
 		rrx(ps->a);
 }
 
@@ -90,10 +90,10 @@ t_bool	check_sorted(t_stack *st)
 
 void	arr_qsort(int *arr, int l, int r)
 {
-	int i;
-	int j;
-	int pvt;
-	int tmp;
+	int	i;
+	int	j;
+	int	pvt;
+	int	tmp;
 
 	i = l;
 	j = r;

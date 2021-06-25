@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:44:14 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 17:05:59 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:30:34 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_stack
 typedef struct s_ps
 {
 	int		*tmp;
-	int 	*arr;
+	int		*arr;
 	int		size;
 	int		dir;
 	int		is_chk;

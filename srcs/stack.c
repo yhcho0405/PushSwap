@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:02:28 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 17:03:00 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:45:51 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	push(t_stack *stack, t_node *node)
 
 t_node	*pop(t_stack *stack)
 {
-	t_node *ret;
+	t_node	*ret;
 
 	if (!stack || !stack->size)
 		return (NULL);
@@ -56,7 +56,7 @@ t_node	*pop(t_stack *stack)
 
 void	append(t_ps *ps, t_stack *st, int val)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = new_node(ps, val);
 	if (!st)
@@ -79,9 +79,9 @@ void	append(t_ps *ps, t_stack *st, int val)
 
 t_node	*new_node(t_ps *ps, int val)
 {
-	t_node *new;
+	t_node	*new;
 
-	new = (t_node *)malloc(sizeof(t_node)); // Prevent stack overflow
+	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		error_exit(ps);
 	new->val = val;

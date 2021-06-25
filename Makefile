@@ -49,10 +49,8 @@ clean:
 	rm -rf srcs/*.o
 	rm -rf printf/*.o
 	rm -rf gnl/*.o
-# make -C libft/ clean
 
 fclean: clean
 	rm -f $(NAME_PS) $(NAME_CK)
-# make -C libft/ fclean
 
 re: fclean all
