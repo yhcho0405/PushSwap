@@ -19,7 +19,7 @@ SRCS_CK =	srcs/checker.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
-GCC_FLAG = -Wall -Werror -Wextra -g -fsanitize=address
+GCC_FLAG = -Wall -Werror -Wextra #-g -fsanitize=address
 CC = gcc $(GCC_FLAG)
 
 OBJS = $(SRCS:.c=.o)
@@ -43,12 +43,6 @@ $(NAME_PS): $(OBJS) $(OBJS_PS)
 
 $(NAME_CK): $(OBJS) $(OBJS_CK)
 	$(CC) -o $@ $^ -Llibft -lft -I./
-
-MAX = 500
-
-test: all
-	./test.sh 1 500 10
-	python3 push_swap_visualizer/pyviz.py `ruby -e "puts (1..$(MAX)).to_a.shuffle.join(' ')"`
 
 clean:
 	rm -rf objs/
