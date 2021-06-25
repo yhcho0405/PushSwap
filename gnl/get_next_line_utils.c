@@ -6,15 +6,15 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 17:12:30 by youncho           #+#    #+#             */
-/*   Updated: 2020/12/31 08:37:44 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:43:11 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t len;
+	size_t	len;
 
 	if (!str)
 		return (FAIL);
@@ -24,7 +24,7 @@ size_t		ft_strlen(const char *str)
 	return (len);
 }
 
-int			set_line_size(char **line, size_t len)
+int		set_line_size(char **line, size_t len)
 {
 	char	*tmp;
 	size_t	i;

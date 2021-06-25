@@ -6,16 +6,16 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 21:42:31 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 17:31:49 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:49:46 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //	Fixme: comment out -> makefile/WFLAG
-//	python3 push_swap_visualizer/pyviz.py `ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`
+//	`ruby -e "puts (-250..249).to_a.shuffle.join(' ')"`
 
-void		push_swap(t_ps *ps)
+void	push_swap(t_ps *ps)
 {
 	int		i;
 	t_node	*n;
@@ -41,16 +41,16 @@ void		push_swap(t_ps *ps)
 		solve(ps, ps->a, ps->b, ps->min);
 }
 
-int			main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	t_ps	*ps;
-	char 	**args;
+	char	**args;
 
 	if (argc < 2)
 		return (0);
-	a = (t_stack *)ft_calloc(1, sizeof(t_stack)); //Init all var to 0
+	a = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	b = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	ps = (t_ps *)ft_calloc(1, sizeof(t_ps));
 	a->name = 'a';

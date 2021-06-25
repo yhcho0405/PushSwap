@@ -6,13 +6,13 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 07:39:35 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 18:15:49 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:44:56 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void		move_checker(t_ps *ps, int op)
+void	move_checker(t_ps *ps, int op)
 {
 	if (op == O_SA)
 		sx(ps->a);
@@ -38,7 +38,7 @@ void		move_checker(t_ps *ps, int op)
 		rrr(ps);
 }
 
-void		checker(t_ps *ps)
+void	checker(t_ps *ps)
 {
 	char		*line;
 	const char	*op[12] = {"sa", "sb", "ss", "pa", "pb",
@@ -65,17 +65,16 @@ void		checker(t_ps *ps)
 		ft_printf("KO\n");
 }
 
-
-int			main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	t_ps	*ps;
-	char 	**args;
+	char	**args;
 
 	if (argc < 2)
 		return (0);
-	a = (t_stack *)ft_calloc(1, sizeof(t_stack)); //Init all var to 0
+	a = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	b = (t_stack *)ft_calloc(1, sizeof(t_stack));
 	ps = (t_ps *)ft_calloc(1, sizeof(t_ps));
 	ps->a = a;

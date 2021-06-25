@@ -6,13 +6,13 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:37:54 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 18:20:12 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:43:42 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		free_all(t_ps *ps)
+int	free_all(t_ps *ps)
 {
 	while (ps->a->head)
 		free(pop(ps->a));
@@ -35,7 +35,7 @@ void	error_exit(t_ps *ps)
 	exit(1);
 }
 
-int		get_int(t_ps *ps, const char *str)
+int	get_int(t_ps *ps, const char *str)
 {
 	int			sign;
 	uint64_t	ans;
