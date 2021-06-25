@@ -19,7 +19,7 @@ SRCS_CK =	srcs/checker.c \
 			gnl/get_next_line.c \
 			gnl/get_next_line_utils.c
 
-GCC_FLAG = -Wall -Werror -Wextra #-g -fsanitize=address
+GCC_FLAG = -Wall -Werror -Wextra -g -fsanitize=address
 CC = gcc $(GCC_FLAG)
 
 OBJS = $(SRCS:.c=.o)
