@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:37:54 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 16:57:55 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 18:20:12 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,39 +54,4 @@ int		get_int(t_ps *ps, const char *str)
 		|| (int64_t)INT_MAX < (int64_t)(ans * sign))
 		error_exit(ps);
 	return (ans * sign);
-}
-
-void	test(t_ps *ps)
-{
-	t_node *na;
-	t_node *nb;
-	int		ia;
-	int		ib;
-
-	system("clear");
-	na = ps->a->head;
-	nb = ps->b->head;
-	ia = ps->a->size;
-	ib = ps->b->size;
-	ft_printf("┌─────a─────┬─────b─────┐\n");
-	while (ia > 0 || ib > 0)
-	{
-		if (ia > 0)
-		{
-			ft_printf("|%11d|", na->val);
-			na = na->next;
-		}
-		else
-			ft_printf("│           │");
-		if (ib > 0)
-		{
-			ft_printf("%11d|\n", nb->val);
-			nb = nb->next;
-		}
-		else
-			ft_printf("           |\n");
-		ia--;
-		ib--;
-	}
-	ft_printf("└───────────┴───────────┘\n");
 }
