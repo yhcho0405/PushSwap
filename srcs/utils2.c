@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:37:54 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/24 17:36:41 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/25 16:57:55 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		free_all(t_ps *ps)
 		free(pop(ps->a));
 	free(ps->a);
 	while (ps->b->head)
-		free(pop(ps->a));
+		free(pop(ps->b));
 	free(ps->b);
 	if (ps->arr)
 		free(ps->arr);
