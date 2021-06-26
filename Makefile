@@ -27,10 +27,6 @@ OBJS_PS = $(SRCS_PS:.c=.o)
 OBJS_CK = $(SRCS_CK:.c=.o)
 
 all: $(NAME_PS) $(NAME_CK)
-	mkdir -p objs/
-	mv srcs/*.o objs/
-	mv printf/*.o objs/
-	mv gnl/*.o objs/
 
 libft:
 	make bonus -C libft/
@@ -38,19 +34,20 @@ libft:
 $(%.o): $(%.c)
 	$(CC) -o $@ -c $^
 
-$(NAME_PS): $(OBJS) $(OBJS_PS)
-	$(CC) -o $@ $^ -Llibft -lft -I./
+$(NAME_PS): libft $(OBJS) $(OBJS_PS)
+	$(CC) -o $@ $(OBJS) $(OBJS_PS) -Llibft -lft -I./
 
-$(NAME_CK): $(OBJS) $(OBJS_CK)
-	$(CC) -o $@ $^ -Llibft -lft -I./
+$(NAME_CK): libft $(OBJS) $(OBJS_CK)
+	$(CC) -o $@ $(OBJS) $(OBJS_CK) -Llibft -lft -I./
 
 clean:
-	rm -rf objs/
-	rm -rf srcs/*.o
-	rm -rf printf/*.o
-	rm -rf gnl/*.o
+	rm -f srcs/*.o
+	rm -f printf/*.o
+	rm -f gnl/*.o
+	make -C libft/ clean
 
 fclean: clean
 	rm -f $(NAME_PS) $(NAME_CK)
+	make -C libft/ fclean
 
 re: fclean all
