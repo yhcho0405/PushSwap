@@ -6,7 +6,7 @@
 /*   By: youncho <youncho@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 08:49:22 by youncho           #+#    #+#             */
-/*   Updated: 2021/06/25 18:48:33 by youncho          ###   ########.fr       */
+/*   Updated: 2021/06/26 17:13:28 by youncho          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	least_case_sort(t_ps *ps)
 		|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
 			|| ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0]))))
 		sx(ps->a);
+	if (ps->a->size == 2)
+		return ;
 	ps->tmp[0] = ps->a->head->val;
 	ps->tmp[1] = ps->a->head->next->val;
 	ps->tmp[2] = ps->a->head->next->next->val;
